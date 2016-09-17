@@ -65,8 +65,8 @@ while not done:
 
 
     screen.fill((241, 196, 15))
-    for game in game_list:
-        screen.blit(game.image, game.imagerect)
+    game_list.update()
+    game_list.draw(screen)
 
     screen.blit(obj1, obj1_rect)
     screen.blit(obj2, obj2_rect)
