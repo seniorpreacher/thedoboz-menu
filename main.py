@@ -21,7 +21,7 @@ joysticks = [pygame.joystick.Joystick(x) for x in range(pygame.joystick.get_coun
 for joy in joysticks:
     joy.init()
 joy1 = joysticks[0]
-#joy2 = joysticks[1]
+joy2 = joysticks[1]
 
 while not done:
     for event in pygame.event.get():
