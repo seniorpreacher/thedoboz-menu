@@ -15,11 +15,10 @@ obj2_rect = obj2.get_rect()
 obj2_rect.x = 500
 
 #creating teams
-team_list = []
-for team in teamdata.teams:
-    team_list.append(Team(team["filename"], team["position"], team["command"]))
-
 game_list = pygame.sprite.Group()
+
+for team in teamdata.teams:
+    game_list.add(Team(team["filename"], team["position"], team["command"]))
 clock = pygame.time.Clock()
 done = False
 pygame.key.set_repeat(1, 40)
@@ -28,7 +27,7 @@ joysticks = [pygame.joystick.Joystick(x) for x in range(pygame.joystick.get_coun
 for joy in joysticks:
     joy.init()
 joy1 = joysticks[0]
-joy2 = joysticks[1]
+# joy2 = joysticks[1]
 
 
 
@@ -45,14 +44,14 @@ while not done:
                 obj1_rect = obj1_rect.move([0, -4])
             if joy1.get_axis(1) > 0:
                 obj1_rect = obj1_rect.move([0, 4])
-            if joy2.get_axis(0) < 0:
-                obj2_rect = obj2_rect.move([-4, 0])
-            if joy2.get_axis(0) > 0:
-                obj2_rect = obj2_rect.move([4, 0])
-            if joy2.get_axis(1) < 0:
-                obj2_rect = obj2_rect.move([0, -4])
-            if joy2.get_axis(1) > 0:
-                obj2_rect = obj2_rect.move([0, 4])
+            # if joy2.get_axis(0) < 0:
+            #     obj2_rect = obj2_rect.move([-4, 0])
+            # if joy2.get_axis(0) > 0:
+            #     obj2_rect = obj2_rect.move([4, 0])
+            # if joy2.get_axis(1) < 0:
+            #     obj2_rect = obj2_rect.move([0, -4])
+            # if joy2.get_axis(1) > 0:
+            #     obj2_rect = obj2_rect.move([0, 4])
         if event.type == pygame.JOYBUTTONDOWN:
             if joy1.get_button(0) == 1:
                 for game in game_list:
